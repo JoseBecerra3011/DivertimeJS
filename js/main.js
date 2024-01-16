@@ -1,12 +1,12 @@
 let respuestasCorrectas = [];
 
-// Objeto
+// Objeto para representar una categoría
 function Categoria(nombre, preguntas) {
     this.nombre = nombre;
     this.preguntas = preguntas;
 }
 
-// Arrays
+// Array que contiene instancias de cada categoría
 let categorias = [
     new Categoria("Deportes", [
         // PREGUNTA 1
@@ -20,6 +20,7 @@ let categorias = [
         // PREGUNTA 5
         { enunciado: "¿En qué deporte se compite en una pista y los atletas saltan sobre obstáculos?", opciones: "1 - Salto con pértiga\n2 - Carrera de obstáculos\n3 - Maratón", respuestaCorrecta: 2 },
         // PREGUNTA 6
+        { enunciado: "¿Cuál es el deporte acuático en el que los participantes surfean sobre las olas?", opciones: "1 - Windsurf\n2 - Surf\n3 - Esquí acuático", respuestaCorrecta: 2 },
         { enunciado: "¿Cuál es el deporta:e acuático en el que los participantes surfean sobre las olas?", opciones: "1 - Windsurf\n2 - Surf\n3 - Esquí acuático", respuestaCorrecta: 2 },
         // PREGUNTA 7
         { enunciado: "¿Qué deporte se juega en una mesa dividida por una red y se golpea una pelota con una paleta?", opciones: "1 - Tenis de mesa\n2 - Badminton\n3 - Ping pong", respuestaCorrecta: 1 },
@@ -43,7 +44,6 @@ let categorias = [
         // PREGUNTA 7
         { enunciado: "¿Qué tipo de alimento es el kimchi en la cocina coreana?", opciones: "1 - Sopa\n2 - Ensalada\n3 - Condimento fermentado", respuestaCorrecta: 3 },
     ]),
-
     new Categoria("Cultura", [
         // PREGUNTA 1
         { enunciado: "¿Cuál es el propósito principal de la Gran Muralla China?", opciones: "1 - Proteger contra invasiones\n2 - Marcar fronteras\n3 - Almacenar alimentos", respuestaCorrecta: 1 },
@@ -62,7 +62,6 @@ let categorias = [
         // PREGUNTA 8
         { enunciado: "¿Qué país es conocido como 'la Tierra del Sol Naciente'?", opciones: "1 - China\n2 - Japón\n3 - Corea del Sur", respuestaCorrecta: 2 },
     ]),
-
     new Categoria("Autos", [
         // PREGUNTA 1
         { enunciado: "¿Cuál es una marca famosa de automóviles conocida por su logo de 'anillos entrelazados'?", opciones: "1 - Ford\n2 - Toyota\n3 - Audi", respuestaCorrecta: 3 },
@@ -81,7 +80,6 @@ let categorias = [
         // PREGUNTA 8
         { enunciado: "¿Qué famosa marca de automóviles produce el modelo '911'?", opciones: "1 - Mercedes-Benz\n2 - Porsche\n3 - BMW", respuestaCorrecta: 2 },
     ]),
-
     new Categoria("Animales", [
         // PREGUNTA 1
         { enunciado: "¿Cuál es el animal más grande del planeta Tierra?", opciones: "1 - Elefante africano\n2 - Ballena azul\n3 - Jirafa", respuestaCorrecta: 2 },
@@ -101,6 +99,43 @@ let categorias = [
         { enunciado: "¿Cuál es el animal que bate sus alas más rápido y es capaz de quedarse suspendido en el aire?", opciones: "1 - Águila\n2 - Colibrí\n3 - Búho", respuestaCorrecta: 2 },
     ]),
 ];
+let url = window.location.href.replace('index.html','preguntas.json');
+// Función para cargar preguntas desde el archivo JSON local usando fetch y promesas
+async function cargarPreguntasDesdeJSON() {
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+                mode: "no-cors"
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error en la respuesta del servidor: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                categorias = data; // Asigna las preguntas cargadas desde el archivo JSON a la variable global
+                resolve();
+            })
+            .catch(error => {
+                console.error('Error al cargar preguntas desde el archivo JSON:', error);
+                reject(error);
+            })
+            .finally(() => {
+                console.log('Intentando cargar preguntas desde JSON...'); // Mensaje para la consola
+            });
+    });
+}
+
+
+cargarPreguntasDesdeJSON()
+    .then(() => bienvenida())
+    .catch(() => {
+        // Manejar el error, por ejemplo, mostrar un mensaje al usuario
+        alert('Error al cargar preguntas desde el archivo JSON. Por favor, intenta nuevamente más tarde.');
+    })
+    .finally(() => {
+        console.log('Intento de carga de preguntas completado.'); // Mensaje para la consola
+    });
 
 // Almacenar preguntas en localStorage
 localStorage.setItem('preguntas', JSON.stringify(categorias));
@@ -117,7 +152,7 @@ if (storedRespuestasCorrectas) {
     respuestasCorrectas = JSON.parse(storedRespuestasCorrectas);
 }
 
-// Método para buscar una pregunta por enunciado
+// Buscar una pregunta por enunciado
 function buscarPreguntaPorEnunciado(enunciado) {
     for (let categoria of categorias) {
         let preguntaEncontrada = categoria.preguntas.find(pregunta => pregunta.enunciado.toLowerCase() === enunciado.toLowerCase());
@@ -127,19 +162,19 @@ function buscarPreguntaPorEnunciado(enunciado) {
     }
     return null;
 }
-
 // Método para filtrar preguntas por respuesta correcta en una categoría
 function filtrarPreguntasPorRespuestaCorrecta(categoria, respuestaCorrecta) {
     return categoria.preguntas.filter(pregunta => pregunta.respuestaCorrecta === respuestaCorrecta);
 }
 
-function realizarPreguntaDOM(pregunta) {
-    return new Promise((resolve, reject) => {
+async function realizarPreguntaDOM(pregunta) {
+    return new Promise(async (resolve, reject) => {
         let preguntaContainer = document.createElement('div');
-        preguntaContainer.innerHTML = `
-            <p>${pregunta.enunciado}</p>
-            <p>${pregunta.opciones}</p>
-        `;
+    preguntaContainer.id = 'preguntaContainer'; // Añade el ID al contenedor de preguntas
+    preguntaContainer.innerHTML = `
+    <p>${pregunta.enunciado}</p>
+    <p>${pregunta.opciones}</p>
+    `;
 
         let respuestaInput = document.createElement('input');
         respuestaInput.type = 'text';
@@ -147,22 +182,22 @@ function realizarPreguntaDOM(pregunta) {
         let enviarBtn = document.createElement('button');
         enviarBtn.textContent = 'Enviar Respuesta';
 
-        enviarBtn.addEventListener('click', function () {
+        enviarBtn.addEventListener('click', async function () {
             let respuestaUsuario = respuestaInput.value;
             if (respuestaUsuario === pregunta.respuestaCorrecta.toString()) {
-                alert("Correcto!");
+                await showSweetAlert('success', 'Correcto', '¡Respuesta correcta!');
                 respuestasCorrectas.push(pregunta.enunciado);
-                preguntaContainer.remove();
-                respuestaInput.remove();
-                enviarBtn.remove();
-                resolve(true);
             } else {
-                alert("Respuesta Incorrecta");
-                preguntaContainer.remove();
-                respuestaInput.remove();
-                enviarBtn.remove();
-                resolve(false);
+                await showSweetAlert('error', 'Respuesta Incorrecta', 'Inténtalo de nuevo.');
             }
+
+            // Cerrar ventana abierta de SweetAlert antes de mostrar una nueva
+            Swal.close();
+
+            preguntaContainer.remove();
+            respuestaInput.remove();
+            enviarBtn.remove();
+            resolve(respuestaUsuario === pregunta.respuestaCorrecta.toString());
         });
 
         document.body.appendChild(preguntaContainer);
@@ -170,7 +205,6 @@ function realizarPreguntaDOM(pregunta) {
         document.body.appendChild(enviarBtn);
     });
 }
-
 
 async function jugarCategoriaDOM(categoria) {
     let contador = 0;
@@ -186,51 +220,121 @@ async function jugarCategoriaDOM(categoria) {
             intentosIncorrectos++;
         }
 
-        if (intentosIncorrectos >= 3) {
-            alert(`¡Juego de ${categoria.nombre} terminado! Has alcanzado el límite de intentos incorrectos.`);
-            break;
-        }
+        // Cerrar ventana abierta de SweetAlert antes de mostrar una nueva
+        Swal.close();
     }
 
-    if (contador === cantidadDePreguntas) {
-        alert(`¡Felicidades! Has respondido todas las preguntas correctamente en ${categoria.nombre}.`);
+    if (intentosIncorrectos >= 3) {
+        await showSweetAlert('error', 'Juego terminado', 'Has alcanzado el límite de intentos incorrectos.');
     } else {
-        alert(`Respuestas Correctas en ${categoria.nombre}: ${contador}`);
+        await showSweetAlert('success', 'Felicidades', 'Has respondido todas las preguntas correctamente en ' + categoria.nombre + '.');
     }
+}
+
+async function showSweetAlert(icon, title, text) {
+    return await Swal.fire({
+        icon: icon,
+        title: title,
+        text: text,
+    });
 }
 
 async function bienvenida() {
-    let edad = prompt("Bienvenido a DIVERTIME. Ingresa tu edad");
+    const edadInput = document.createElement('input');
+    edadInput.type = 'number';
+    edadInput.placeholder = 'Por favor, ingresa tu edad.';
+    
+    const confirmarEdadBtn = document.createElement('button');
+    confirmarEdadBtn.textContent = 'Bienvenido a DIVERTIME.';
+    
 
-    if (edad !== null && edad >= 18) {
-        alert("Podes ingresar. Único requisito: ¡DIVERTIRTE!");
+    const bienvenidaContainer = document.createElement('div');
+    bienvenidaContainer.appendChild(edadInput);
+    bienvenidaContainer.appendChild(confirmarEdadBtn);
 
-    let continuarJugando = true;
+    document.body.appendChild(bienvenidaContainer);
 
-        while (continuarJugando) {
-            let opcionesCategorias = categorias.map((categoria, index) => `${index + 1} - ${categoria.nombre}`).join('\n');
-            let seleccion = prompt(`Selecciona una categoría:\n${opcionesCategorias}`);
+    return new Promise(resolve => {
+        confirmarEdadBtn.addEventListener('click', async () => {
+            const edad = parseInt(edadInput.value);
 
-            let indiceCategoria = parseInt(seleccion) - 1;
-
-            if (!isNaN(indiceCategoria) && indiceCategoria >= 0 && indiceCategoria < categorias.length) {
-                await jugarCategoriaDOM(categorias[indiceCategoria]);
+            if (!isNaN(edad) && edad >= 18) {
+                await mostrarMensaje('info', '¡Podes ingresar!', 'Único requisito: ¡DIVERTIRTE!');
+                bienvenidaContainer.remove();
+                resolve();
             } else {
-                alert("Opción no válida. ¡Relájate y selecciona una categoría válida!");
+                mostrarMensaje('error', 'Lo siento', 'No cumples con la edad necesaria para entrar a jugar. ¡Hasta luego!');
             }
+        });
+    });
+}
 
-            continuarJugando = confirm("Muy bien, ¿Deseas continuar con otra categoría?");
-            if (!continuarJugando) {
-                alert("Gracias por jugar. ¡Nos Vemos Pronto!");
-            }
+async function mostrarMensaje(icon, title, text) {
+    return await Swal.fire({
+        icon: icon,
+        title: title,
+        text: text,
+        customClass: {
+            popup: 'custom-swal-popup', // Clase personalizada para el fondo del popup
+            title: 'custom-swal-title', // Clase personalizada para el título
+            content: 'custom-swal-content', // Clase personalizada para el contenido
+            confirmButton: 'custom-swal-confirm', // Clase personalizada para el botón de confirmar
+            cancelButton: 'custom-swal-cancel' // Clase personalizada para el botón de cancelar
         }
-
-        return true;
-    } else {
-        alert("Lo siento, no cumplis con la edad necesaria para entrar a jugar. ¡Hasta luego!");
-        return false;
-    }
+    });
 }
 
 // Llamada inicial
-bienvenida();
+bienvenida()
+    .then(() => iniciarJuego())
+    .catch(error => console.error(error));
+
+async function iniciarJuego() {
+    let continuarJugando = true;
+    
+    while (continuarJugando) {
+        let opcionesCategorias = categorias.map((categoria, index) => `${index + 1} - ${categoria.nombre}`).join('\n');
+        const seleccion = await mostrarMensajeConInput('number', 'Selecciona una categoría:', opcionesCategorias);
+
+        const indiceCategoria = parseInt(seleccion) - 1;
+
+        if (!isNaN(indiceCategoria) && indiceCategoria >= 0 && indiceCategoria < categorias.length) {
+            await jugarCategoriaDOM(categorias[indiceCategoria]);
+        } else {
+            mostrarMensaje('error', 'Opción no válida', '¡Relájate y selecciona una categoría válida!');
+        }
+
+        continuarJugando = await mostrarMensajeConfirmacion('question', 'Muy bien', '¿Deseas continuar con otra categoría?');
+        
+        if (!continuarJugando) {
+            mostrarMensaje('info', 'Gracias por jugar', '¡Nos vemos pronto!');
+        }
+    }
+}
+
+async function mostrarMensajeConInput(inputType, title, text) {
+    const { value } = await Swal.fire({
+        title: title,
+        text: text,
+        input: inputType,
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar'
+        
+    });
+
+    return value;
+}
+
+async function mostrarMensajeConfirmacion(icon, title, text) {
+    const { value } = await Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+    });
+
+    return value;
+}

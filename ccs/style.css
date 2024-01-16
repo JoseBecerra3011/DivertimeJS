@@ -1,4 +1,5 @@
 body {
+    background-color: rgb(172, 169, 169);
     font-family: 'Arial', sans-serif;
     background-color: #4b4949;
     margin: 0;
@@ -8,20 +9,23 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    color: #fffefe;
 }
 
 div {
-    background-color: #0f59f8;
+    background-color: #a8a8af;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(245, 241, 241, 0.1);
+    box-shadow: 0 0 10px rgba(95, 86, 86, 0.897);
     margin-bottom: 20px;
 }
 
 p {
     margin-bottom: 10px;
-    font-size: 18px; /* Tamaño de letra ajustable según tus preferencias */
-    font-weight: bold; /* Texto en negrita */
+    font-size: 18px; 
+    font-weight: bold; 
+    color: #360505;
+    text-align: center;
 }
 
 input {
@@ -32,12 +36,8 @@ input {
 button {
     padding: 10px 20px;
     background-color: #4caf50;
-    color: #0a0a0a;
+    color: #fffefe;
     border: none;
-    border-radius: 5px;
+    border-radius: 200px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
 }

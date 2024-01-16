@@ -1,0 +1,222 @@
+[
+    {
+      "categoria": "Deportes",
+      "preguntas": [
+        {
+          "enunciado": "¿Cuántos jugadores conforman un equipo de fútbol?",
+          "opciones": ["1 - 11", "2 - 12", "3 - 10"],
+          "respuestaCorrecta": 1
+        },
+        {
+          "enunciado": "¿En qué deporte se utiliza un balón de baloncesto?",
+          "opciones": ["1 - Fútbol", "2 - Baloncesto", "3 - Golf"],
+          "respuestaCorrecta": 2
+        },
+        {
+          "enunciado": "¿Cuál es el evento deportivo que se celebra cada cuatro años y reúne a atletas de todo el mundo?",
+          "opciones": ["1 - Copa Mundial de Fútbol", "2 - Juegos Olímpicos", "3 - Super Bowl"],
+          "respuestaCorrecta": 2
+        },
+        {
+          "enunciado": "¿Qué deporte se juega con un palo y una pelota pequeña en un campo con hoyos?",
+          "opciones": ["1 - Golf", "2 - Tenis", "3 - Cricket"],
+          "respuestaCorrecta": 1
+        },
+        {
+          "enunciado": "¿En qué deporte se compite en una pista y los atletas saltan sobre obstáculos?",
+          "opciones": ["1 - Salto con pértiga", "2 - Carrera de obstáculos", "3 - Maratón"],
+          "respuestaCorrecta": 2
+        },
+        {
+          "enunciado": "¿Cuál es el deporte acuático en el que los participantes surfean sobre las olas?",
+          "opciones": ["1 - Windsurf", "2 - Surf", "3 - Esquí acuático"],
+          "respuestaCorrecta": 2
+        },
+        {
+          "enunciado": "¿Qué deporte se juega en una mesa dividida por una red y se golpea una pelota con una paleta?",
+          "opciones": ["1 - Tenis de mesa", "2 - Badminton", "3 - Ping pong"],
+          "respuestaCorrecta": 1
+        },
+        {
+          "enunciado": "¿Cuál es el deporte que se practica en una cancha dividida por una red y se golpea una pelota con raquetas?",
+          "opciones": ["1 - Tenis", "2 - Squash", "3 - Bádminton"],
+          "respuestaCorrecta": 1
+        }
+      ]
+    },
+    {
+        "categoria": "Cocina",
+        "preguntas": [
+          {
+            "enunciado": "¿Para qué se utiliza comúnmente un horno en la cocina?",
+            "opciones": ["1 - Asar carne", "2 - Cocinar alimentos", "3 - Refrigerar alimentos"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Cuál es el ingrediente principal de la receta de guacamole?",
+            "opciones": ["1 - Tomate", "2 - Aguacate", "3 - Cebolla"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Qué método de cocina implica sumergir alimentos en agua hirviendo para cocinarlos?",
+            "opciones": ["1 - Asar", "2 - Hervir", "3 - Freír"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Cuál es el ingrediente principal del plato italiano llamado lasaña?",
+            "opciones": ["1 - Carne de res", "2 - Queso", "3 - Pasta"],
+            "respuestaCorrecta": 3
+          },
+          {
+            "enunciado": "¿Cuál es la bebida caliente tradicional en Japón hecha con té verde en polvo?",
+            "opciones": ["1 - Té negro", "2 - Té de jazmín", "3 - Matcha"],
+            "respuestaCorrecta": 3
+          },
+          {
+            "enunciado": "¿Cuál es el ingrediente principal del plato mexicano llamado tacos?",
+            "opciones": ["1 - Pollo", "2 - Tortilla de maíz", "3 - Arroz"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Qué tipo de alimento es el kimchi en la cocina coreana?",
+            "opciones": ["1 - Sopa", "2 - Ensalada", "3 - Condimento fermentado"],
+            "respuestaCorrecta": 3
+          }
+        ]
+      },
+      {
+        "categoria": "Cultura",
+        "preguntas": [
+          {
+            "enunciado": "¿Cuál es el propósito principal de la Gran Muralla China?",
+            "opciones": ["1 - Proteger contra invasiones", "2 - Marcar fronteras", "3 - Almacenar alimentos"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿En qué país se encuentra la famosa estatua del Cristo Redentor?",
+            "opciones": ["1 - Brasil", "2 - Italia", "3 - España"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿Quién escribió 'Romeo y Julieta'?",
+            "opciones": ["1 - William Shakespeare", "2 - Jane Austen", "3 - Charles Dickens"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿Cuál es la capital de Japón?",
+            "opciones": ["1 - Pekín", "2 - Seúl", "3 - Tokio"],
+            "respuestaCorrecta": 3
+          },
+          {
+            "enunciado": "¿Cuál es la moneda oficial de Australia?",
+            "opciones": ["1 - Dólar australiano", "2 - Euro", "3 - Libra esterlina"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿En qué continente se encuentra el desierto del Sahara?",
+            "opciones": ["1 - África", "2 - Asia", "3 - América del Sur"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿Cuál es el río más largo del mundo?",
+            "opciones": ["1 - Amazonas", "2 - Nilo", "3 - Yangtsé"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Qué país es conocido como 'la Tierra del Sol Naciente'?",
+            "opciones": ["1 - China", "2 - Japón", "3 - Corea del Sur"],
+            "respuestaCorrecta": 2
+          }
+        ]
+      },
+      {
+        "categoria": "Autos",
+        "preguntas": [
+          {
+            "enunciado": "¿Cuál es una marca famosa de automóviles conocida por su logo de 'anillos entrelazados'?",
+            "opciones": ["1 - Ford", "2 - Toyota", "3 - Audi"],
+            "respuestaCorrecta": 3
+          },
+          {
+            "enunciado": "¿En qué país se fabrica el automóvil de lujo llamado Ferrari?",
+            "opciones": ["1 - Italia", "2 - Alemania", "3 - Estados Unidos"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿Cuál es la velocidad máxima permitida en muchas autopistas de todo el mundo?",
+            "opciones": ["1 - 80 km/h", "2 - 120 km/h", "3 - 160 km/h"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Qué tipo de combustible utiliza comúnmente un automóvil eléctrico?",
+            "opciones": ["1 - Gasolina", "2 - Diésel", "3 - Electricidad"],
+            "respuestaCorrecta": 3
+          },
+          {
+            "enunciado": "¿Qué marca es conocida por su modelo icónico llamado 'Mustang'?",
+            "opciones": ["1 - Chevrolet", "2 - Ford", "3 - Honda"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Cuál es el componente clave del motor que convierte la energía del combustible en energía mecánica?",
+            "opciones": ["1 - Alternador", "2 - Transmisión", "3 - Pistones"],
+            "respuestaCorrecta": 3
+          },
+          {
+            "enunciado": "¿En qué parte del automóvil se almacena el combustible antes de que llegue al motor?",
+            "opciones": ["1 - Radiador", "2 - Tanque de combustible", "3 - Filtro de aire"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Qué famosa marca de automóviles produce el modelo '911'?",
+            "opciones": ["1 - Mercedes-Benz", "2 - Porsche", "3 - BMW"],
+            "respuestaCorrecta": 2
+          }
+        ]
+      },
+      {
+        "categoria": "Animales",
+        "preguntas": [
+          {
+            "enunciado": "¿Cuál es el animal más grande del planeta Tierra?",
+            "opciones": ["1 - Elefante africano", "2 - Ballena azul", "3 - Jirafa"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Qué animal es conocido por su capacidad para cambiar de color y camuflarse con su entorno?",
+            "opciones": ["1 - Camaleón", "2 - Pavo real", "3 - Tigre"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿Cuál es el mamífero volador que se alimenta principalmente de frutas?",
+            "opciones": ["1 - Murciélago", "2 - Águila", "3 - Colibrí"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿Qué animal es famoso por su trompa larga y colmillos grandes?",
+            "opciones": ["1 - Rinoceronte", "2 - Elefante", "3 - Hipopótamo"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Cuál es el animal nacional de Australia que se caracteriza por llevar a su cría en una bolsa?",
+            "opciones": ["1 - Canguro", "2 - Koala", "3 - Wombat"],
+            "respuestaCorrecta": 1
+          },
+          {
+            "enunciado": "¿Qué animal es conocido por su capacidad de regenerar extremidades?",
+            "opciones": ["1 - Estrella de mar", "2 - Salamandra", "3 - Serpiente"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Cuál es el felino más grande y poderoso del mundo?",
+            "opciones": ["1 - León", "2 - Tigre", "3 - Guepardo"],
+            "respuestaCorrecta": 2
+          },
+          {
+            "enunciado": "¿Cuál es el animal que bate sus alas más rápido y es capaz de quedarse suspendido en el aire?",
+            "opciones": ["1 - Águila", "2 - Colibrí", "3 - Búho"],
+            "respuestaCorrecta": 2
+          }
+        ]
+      }
+]
