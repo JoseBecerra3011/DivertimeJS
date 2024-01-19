@@ -1,32 +1,31 @@
-/* Ajuste del ancho para evitar desbordamiento */
+
 .swal2-popup {
-    max-width: 100%; /* Ajusta según sea necesario */
-    background-color: #500909; /* Color de fondo de la ventana emergente */
+    max-width: 100%;  
+    background-color: #500909; /* fondo de la ventana emergente */
 }
 
 /* Estilos para SweetAlert */
 .swal2-title {
-    color: #ffeaea; /* Color del texto del título */
+    color: #ffeaea; /* texto del título */
 }
 
 .swal2-content {
-    color: #ffd8d8; /* Color del texto del contenido */
+    color: #ffd8d8; /* texto del contenido */
 }
 
 .swal2-confirm, .swal2-cancel {
-    border: 1px solid #000000; /* Borde del botón de confirmar y cancelar */
-    color: #d4d4d4; /* Color del texto de los botones de confirmar y cancelar */
+    border: 1px solid #000000;/* Borde del botón de confirmar y cancelar */
+    color: #d4d4d4; /* botones de confirmar y cancelar */
 }
 
-/* Otras clases personalizadas para SweetAlert */
+/* Otras clases para SweetAlert */
 .custom-swal-info {
-    color: #fffefe; /* Color del texto para información */
+    color: #fffefe; /* información */
 }
 
 .custom-swal-warning {
-    color: #f3f2ec; /* Color del texto para advertencias */
+    color: #f3f2ec; /* advertencias */
 }
-
 .custom-swal-success {
-    color: #2da84f; /* Color del texto para éxitos */
-}
+    color: #2da84f; /* texto para éxitos */
+}  

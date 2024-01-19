@@ -12,13 +12,13 @@ body {
     color: #fffefe;
 }
 
-div {
+.container{
     background-color: #a8a8af;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(95, 86, 86, 0.897);
     margin-bottom: 20px;
-}
+} 
 
 p {
     margin-bottom: 10px;
